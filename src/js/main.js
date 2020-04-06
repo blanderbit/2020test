@@ -15,5 +15,6 @@ document.querySelectorAll('#main-nav a').forEach(function (element) {
 });
 
 const tableView = new TableView([], mainContent);
+renderPage(window.location.hash.substr(1));
 
 

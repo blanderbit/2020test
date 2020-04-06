@@ -8,17 +8,25 @@ const renderPage = function (page, id) {
             fetchData('categories')
                 .then(function (data) {
                     tableView.arr = data.map(function (category) {
-                        console.log(category);
-                        let subCategory = document.createElement('a');
-                        subCategory.innerHTML = 'подкатегории';
-                        subCategory.href = '#subcategories';
-                        subCategory.addEventListener('click', function () {
+                        let subActions = [];
+                        let showSub = document.createElement('a');
+                        showSub.innerHTML = 'подкатегории';
+                        showSub.href = '#subcategories';
+                        showSub.addEventListener('click', function () {
                             renderPage(this.hash.substr(1), category.id);
                         });
-                        if (category['subcategories'].length) {
-                            category['subcategories'] = subCategory;
-                        }
+                        let addSub = document.createElement('a');
+                        addSub.innerHTML = ' добавить';
+                        addSub.href = '#add-subcategories';
+                        addSub.addEventListener('click', function () {
+                           alert('hkj')
+                        });
 
+                        if (category['subcategories'].length) {
+                            subActions.push(showSub);
+                        }
+                        subActions.push(addSub);
+                        category['subcategories'] = subActions;
                         return category;
                     });
                     tableView.render();

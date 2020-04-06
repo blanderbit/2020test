@@ -29,14 +29,25 @@ let TableView = function (arr, wrapper) {
         });
     };
 
-    obj.createTd = function (tr, key) {
+    obj.createTd = function (tr, content) {
         let td = document.createElement('td');
         tr.append(td);
-        if (this.isElement(key)) {
-            td.append(key);
+
+
+        if (Array.isArray(content)) {
+            content.forEach((item) => {
+                if (this.isElement(item)) {
+                    td.append(item);
+                }
+            });
         } else {
-            td.innerHTML = key;
+            if (this.isElement(content)) {
+                td.append(content);
+            } else {
+                td.innerHTML = content;
+            }
         }
+
     };
 
     obj.createHr = function (columns, table) {
