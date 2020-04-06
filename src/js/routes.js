@@ -1,3 +1,5 @@
+//здесь происходит выбор страничек, которые будут загружены
+
 const renderPage = function (page, id) {
     mainContent.innerHTML = '';
     switch (page) {
@@ -8,7 +10,7 @@ const renderPage = function (page, id) {
                     tableView.arr = data.map(function (category) {
                         console.log(category);
                         let subCategory = document.createElement('a');
-                        subCategory.innerHTML = 'add';
+                        subCategory.innerHTML = 'подкатегории';
                         subCategory.href = '#subcategories';
                         subCategory.addEventListener('click', function () {
                             renderPage(this.hash.substr(1), category.id);
@@ -42,6 +44,10 @@ const renderPage = function (page, id) {
                     tableView.arr = data.data;
                     tableView.render();
                 });
+            break;
+
+        case '':
+            title.innerHTML = 'Админ - панель';
             break;
 
         default:
