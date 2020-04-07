@@ -2,6 +2,11 @@
 
 const renderPage = function (page, id) {
     mainContent.innerHTML = '';
+
+    let token = localStorage.getItem('token');
+    if(!token){
+        page = 'login';
+    }
     switch (page) {
         case 'categories':
             title.innerHTML = 'Категории';
@@ -56,6 +61,9 @@ const renderPage = function (page, id) {
 
         case '':
             title.innerHTML = 'Админ - панель';
+            break;
+        case 'login':
+            title.innerHTML = 'Введите пароль';
             break;
 
         default:

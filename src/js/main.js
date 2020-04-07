@@ -17,4 +17,17 @@ document.querySelectorAll('#main-nav a').forEach(function (element) {
 const tableView = new TableView([], mainContent);
 renderPage(window.location.hash.substr(1));
 
+const btnEnter = document.querySelector('#btn-enter');
+const btnOut = document.querySelector('#btn-out');
+
+btnEnter.addEventListener('click', function () {
+    localStorage.setItem('token', 'log');
+    console.log('Вход');
+    renderPage('');
+});
+btnOut.addEventListener('click', function () {
+    localStorage.clear();
+    console.log('Выход');
+    renderPage('login');
+});
 
