@@ -82,7 +82,8 @@ let TableView = function (arr, wrapper) {
     //Returns true if it is a DOM element
     obj.isElement = function (o) {
         return (
-            typeof HTMLElement === "object" ? o instanceof HTMLElement : //DOM2
+            //проверка является ли объект DOM элементом
+            typeof HTMLElement === "object" ? o instanceof HTMLElement :
                 o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName === "string"
         );
     };
