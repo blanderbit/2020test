@@ -4,7 +4,7 @@ const renderPage = function (page, id) {
     mainContent.innerHTML = '';
 
     let token = localStorage.getItem('token');
-    if(!token){
+    if (!token) {
         page = 'login';
     }
     switch (page) {
@@ -24,11 +24,12 @@ const renderPage = function (page, id) {
                         addSub.innerHTML = ' добавить';
                         addSub.href = '#add-subcategories';
                         addSub.addEventListener('click', function () {
-                           alert('hkj')
+                            alert('hkj')
                         });
 
                         if (category['subcategories'].length) {
                             subActions.push(showSub);
+                            console.log(subActions);
                         }
                         subActions.push(addSub);
                         category['subcategories'] = subActions;
@@ -44,9 +45,19 @@ const renderPage = function (page, id) {
                 .then(function (data) {
                     //перебор по элементам и запись нового значения
                     tableView.arr = data.map(function (category) {
+                        let subActionEdit = [];
+                        let showEdit = document.createElement('a');
+                        showEdit.innerHTML = 'edit';
+                        showEdit.href = '#edit-subcategories';
+                        showEdit.addEventListener('click', function () {
+                            alert('jlsdfsdf');
+                        });
+                        subActionEdit.push(showEdit);
+                        category['action'] = subActionEdit;
                          delete category['category'];
                         return category;
                     });
+
                     tableView.render();
                 });
             break;

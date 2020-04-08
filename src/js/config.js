@@ -5,6 +5,7 @@ const IS_API_WORKING = false;
 
 const categoryData = [
     {
+        id: 1,
         name: 'ворота резные',
         description: 'Loremjflskаываывамчсмчсмdflsdf',
         subcategories: [{
@@ -13,6 +14,7 @@ const categoryData = [
         }]
     },
     {
+        id: 2,
         name: 'ворота железные',
         description: 'Loremjflskdflsdf',
         subcategories: [{
@@ -21,6 +23,7 @@ const categoryData = [
         }]
     },
     {
+        id: 3,
         name: 'забор резной',
         description: 'Loremjflskdмчмывавыаflsdf',
         subcategories: [{
@@ -29,6 +32,7 @@ const categoryData = [
         }]
     },
     {
+        id: 4,
         name: 'ворота из железных листов',
         description: 'Loremjflskdfl4234аываываsdf',
         subcategories: [{
@@ -40,15 +44,18 @@ const categoryData = [
 
 const subCategoryData = [
     {
-        name: 'ворота резные',
+        id: 5,
+        name: 'тип резные',
         description: 'Loremjflskаываывамчсмчсмdflsdf',
     },
     {
-        name: 'ворота железные',
+        id: 6,
+        name: 'тип железные',
         description: 'Loremjflskdflsdf',
     },
     {
-        name: 'забор резной',
+        id: 7,
+        name: 'тип резной',
         description: 'Loremjflskdмчмывавыаflsdf',
 
     }

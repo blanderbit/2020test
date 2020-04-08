@@ -1,4 +1,5 @@
 let TableView = function (arr, wrapper) {
+
     const obj = {};
     obj.arr = arr;
     obj.wrapper = wrapper;
