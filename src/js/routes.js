@@ -1,6 +1,7 @@
 //здесь происходит выбор страничек, которые будут загружены
 
 const renderPage = function (page, id) {
+    console.log(page, id);
     mainContent.innerHTML = '';
 
     let token = localStorage.getItem('token');
