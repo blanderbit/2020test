@@ -1,7 +1,6 @@
 //здесь происходит выбор страничек, которые будут загружены
 
 const renderPage = function (page, id) {
-    console.log(page, id);
     mainContent.innerHTML = '';
 
     let token = localStorage.getItem('token');
@@ -41,11 +40,11 @@ const renderPage = function (page, id) {
             break;
         case 'subcategories':
             title.innerHTML = 'Подкатегории';
-            fetchData('subcategories/category/' + id)
+            fetchData('subcategories')
                 .then(function (data) {
                     //перебор по элементам и запись нового значения
                     tableView.arr = data.map(function (category) {
-                        delete category['category'];
+                         delete category['category'];
                         return category;
                     });
                     tableView.render();

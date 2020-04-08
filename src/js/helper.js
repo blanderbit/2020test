@@ -93,15 +93,27 @@ let TableView = function (arr, wrapper) {
 
 
 const fetchData = function (url) {
-    return fetch(API_URL + url)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (response) {
-            if (response.success) {
-                return response.data;
-            }
+    if (!IS_API_WORKING) {
+        console.log(url);
+        if (url === 'categories') {
+            return Promise.resolve(categoryData);
+        }
+        if (url.indexOf('subcategories') !== -1) {
+            return Promise.resolve(subCategoryData);
+        } else {
+            mainContent.innerHTML = 'Страница не найдена';
+        }
 
-            return [];
-        });
+}
+return fetch(API_URL + url)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (response) {
+        if (response.success) {
+            return response.data;
+        }
+
+        return [];
+    });
 };
