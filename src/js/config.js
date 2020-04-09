@@ -42,7 +42,7 @@ const categoryData = [
     },
 ];
 
-const subCategoryData = [
+let subCategoryData = [
     {
         id: 5,
         name: 'тип резные',

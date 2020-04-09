@@ -29,7 +29,6 @@ const renderPage = function (page, id) {
 
                         if (category['subcategories'].length) {
                             subActions.push(showSub);
-                            console.log(subActions);
                         }
                         subActions.push(addSub);
                         category['subcategories'] = subActions;
@@ -50,11 +49,24 @@ const renderPage = function (page, id) {
                         showEdit.innerHTML = 'edit';
                         showEdit.href = '#edit-subcategories';
                         showEdit.addEventListener('click', function () {
-                            alert('jlsdfsdf');
+                            createModal(new CategoryEditForm(category.id, category.name, category.description));
+                            $('#modal').modal('show');
+
+                        });
+                        let deleteSub = document.createElement('a');
+                        deleteSub.innerHTML = ' delete';
+                        deleteSub.href = '#del-subcategories';
+                        deleteSub.addEventListener('click', function () {
+                            console.log(category.id);
+                            subCategoryData = subCategoryData.filter(function (el) {
+                                return el.id !== category.id;
+                            });
+                            renderPage('subcategories')
                         });
                         subActionEdit.push(showEdit);
+                        subActionEdit.push(deleteSub);
                         category['action'] = subActionEdit;
-                         delete category['category'];
+                        delete category['category'];
                         return category;
                     });
 
