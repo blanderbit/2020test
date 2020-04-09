@@ -95,8 +95,7 @@ let TableView = function (arr, wrapper) {
 
 const fetchData = function (url) {
     if (!IS_API_WORKING) {
-        console.log(url);
-        if (url === 'categories') {
+         if (url === 'categories') {
             return Promise.resolve(categoryData);
         }
         if (url.indexOf('subcategories') !== -1) {

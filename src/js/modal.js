@@ -49,6 +49,7 @@ class CategoryEditForm {
     }
 
     getForm(arr) {
+        let randomId =  Math.floor(Math.random() * 1000);
         const form = this.createElementFromHTML(this.template);
         const selectCategory = form.querySelector('#select-category');
         const saveButton = form.querySelector('#save-category');
@@ -69,9 +70,10 @@ class CategoryEditForm {
                 let modalData = {};
                 let name = nameInput.value;
                 let description = descriptionInput.value;
+
                 if (name && description) {
                     modalData = {
-                        id: 100,
+                        id: Math.floor(Math.random() * 1000),
                         name: name,
                         description: description
                     };
@@ -80,6 +82,7 @@ class CategoryEditForm {
                     arr.push(modalData);
 
                     renderPage('subcategories');
+                    $('#modal').modal('hide');
                 }
             });
         } else {

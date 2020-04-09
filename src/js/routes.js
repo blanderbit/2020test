@@ -57,7 +57,6 @@ const renderPage = function (page, id) {
                         deleteSub.innerHTML = ' delete';
                         deleteSub.href = '#del-subcategories';
                         deleteSub.addEventListener('click', function () {
-                            console.log(category.id);
                             subCategoryData = subCategoryData.filter(function (el) {
                                 return el.id !== category.id;
                             });
